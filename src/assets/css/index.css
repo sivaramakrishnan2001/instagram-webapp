@@ -1,0 +1,36 @@
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.10), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+
+@import url('./app.css');
+@import url('./defaultstyle.css');
+@import url('./comman.css');
+@import url('./loginsignup.css');
+@import url('./application.css');
+@import url('./home.css');
+@import url('./story.css');
+@import url('./post.css');
+@import url('./create.css');
+@import url('./songs.css');
+@import url('./message.css');
+@import url('./userprofilepage.css');
+@import url('./searchuserpage.css');
+@import url('./myprofile.css');
+@import url('./stickynotes.css');
+@import url('./buttons.css');
+@import url('./reels.css');
+@import url('./comments.css');
+
+
+
+
+
+
+
+

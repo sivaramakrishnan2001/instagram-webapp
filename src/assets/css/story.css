@@ -1,0 +1,208 @@
+/* ====================================================== */
+/* story */
+
+.story-container {
+    width: 600px;
+    height: 120px;
+
+}
+
+.story-container>.story-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: start;
+    column-gap: 10px;
+
+}
+
+.story-container>.story-content>.story {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.story-container>.story-content>.story.add{
+    position: relative;
+}
+
+.story-container>.story-content>.story.add>svg{
+    position: absolute;
+    top: 80%;
+    right: 10%;
+    fill: rgb(57, 137, 241);
+    z-index: 99;
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    border-radius: 100%;
+    padding: 0px;
+}
+
+.story-container>.story-content>.story>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ================================================================== */
+/* storyvideo wapper*/
+
+.storyvideo-wapper {
+    height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+}
+
+.storyvideo-wapper>.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.storyvideo-wapper>.header>.logo {
+    height: 35px;
+    width: 200px;
+}
+
+.storyvideo-wapper>.header>.logo>svg,
+.storyvideo-wapper>.header>.logo>img {
+    height: 100%;
+    width: 100%;
+}
+
+.storyvideo-wapper>.content {
+    height: calc(100% - 50px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyvideo-wapper>.content>.back-btn,
+.storyvideo-wapper>.content>.next-btn {
+    position: absolute;
+    z-index: 99;
+}
+
+.storyvideo-wapper>.content>.back-btn {
+    left: 20%;
+}
+
+.storyvideo-wapper>.content>.next-btn {
+    right: 20%;
+}
+
+
+.storyvideo-wapper>.content>.story {
+    height: 100%;
+    width: 100%;
+}
+
+.storyvideo-wapper>.content>.story>.storys {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    position: relative;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video {
+    width: 40%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.range {
+    position: absolute;
+    top: 10px;
+    width: 80%;
+    overflow: hidden;
+    background: transparent;
+    /* -webkit-appearance: none; */
+}
+
+storyvideo-wapper>.content>.story>.storys>.story>.video>.range::-webkit-slider-runnable-track{
+    background-color: #22e032;
+}
+
+
+
+.storyvideo-wapper>.content>.story>.storys>.story,
+.storyvideo-wapper>.content>.story>.storys>.story>.video>video {
+    height: 100%;
+    width: 100%;
+    margin-top: -20px;
+}
+
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.pause {
+    background-image: url("../images/png/pause.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    height: 135px;
+    width: 135px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -67px;
+    margin-left: -67px;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.user{
+    position: absolute;
+    z-index: 99;
+    top: 5%;
+    width: 25%;
+    display: flex;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.user>.profile{
+    height: 40px;
+    width: 40px;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.user>.profile>img{
+    height: 100%;
+    width: 100%;
+}
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.user>.content{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: small;
+}
+
+
+.storyvideo-wapper>.content>.story>.storys>.story>.video>.footer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    bottom: 10%;
+    width: 50%;
+    height: 50px;
+}

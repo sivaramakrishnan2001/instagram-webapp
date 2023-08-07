@@ -1,0 +1,135 @@
+.view-comments-wapper,
+.shares-wapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+}
+
+.view-comments-wapper>.view-comments {
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row {
+    min-height: 70px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row.right {
+    justify-content: end;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row.left {
+    justify-content: start;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row>.msg-content {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    max-width: 80%;
+    height: 100%;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row.right>.msg-content {
+    border-radius: 6px;
+    background-color: rgb(66, 110, 255);
+    padding: 10px 20px;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row.left>.msg-content {
+    border-radius: 6px;
+    padding: 10px 20px;
+    border: 1px solid gainsboro;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row.left>.msg-content>.profile,
+.view-comments-wapper>.view-comments>.messsage-row.left>.msg-content>.profile>img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.view-comments-wapper>.view-comments>.messsage-row>.msg-content>.content>.text {
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* ================================================================== */
+
+.shares-wapper>.shares-container {
+    height: 90%;
+    width: 100%;
+    padding: 0px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shares-wapper>.search-wapper {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.shares-wapper>.search-wapper>.search {
+    width: 100%;
+    padding: 0px 50px;
+}
+
+.shares-wapper>.search-wapper>.search>input {
+    width: 100%;
+    border-radius: 5px;
+    outline: "none";
+    border: 1px solid gray;
+}
+
+.shares-wapper>.shares-container>.user-row{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    margin-top: 15px;
+}
+
+.shares-wapper>.shares-container>.user-row>.profile,
+.shares-wapper>.shares-container>.user-row>.profile>img{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.shares-wapper>.shares-container>.user-row>.content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 50px);
+    padding: 0px 20px;
+
+}
+
+.shares-wapper>.shares-container>.user-row>.content>.send{
+    background-color: #1071d8;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: #00000029 0px 1px 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}

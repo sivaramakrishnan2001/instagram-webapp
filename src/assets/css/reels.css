@@ -1,0 +1,64 @@
+.all-reels {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 100%;
+    width: 330px;
+    padding-bottom: 50px;
+}
+
+.all-reels>.video {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: #000;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.all-reels>.video>.pause {
+    background-image: url("../images/png/pause.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    height: 135px;
+    width: 135px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -67px;
+    margin-left: -67px;
+}
+
+.all-reels>.video>video{
+    object-fit: cover !important;
+}
+
+.all-reels>.video>.user {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+.all-reels>.video>.user>.profile{
+    height: 40px;
+    width: 40px;
+}
+.all-reels>.video>.user>.profile>img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+.all-reels>.video>.user>.content{
+    margin-left: 10px;
+    color: #fff;
+}

@@ -1,0 +1,68 @@
+.songs-container {
+    background-color: rgba(0, 0, 0, 0.856);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.songs-container>.header {
+    width: 100%;
+    height: 120px;
+}
+
+.songs-container>.header>.mf-dropdown-with-input-search>.search-box {
+    background-color: transparent;
+    color: #fff;
+
+}
+
+.songs-container>.header>.mf-dropdown-with-input-search>.popup {
+    background-color: transparent;
+
+}
+
+.songs-container>.header>.mf-dropdown-with-input-search>.popup>.row-drop-item>.data {
+    color: #fff;
+
+}
+
+.songs-container>.songs {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+.songs-container>.songs::-webkit-scrollbar {
+    width: 2px;
+
+}
+
+.songs-container>.songs::-webkit-scrollbar-thumb {
+    background-color: #1a73e8;
+
+}
+
+.songs>.song {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.songs>.song>.song-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.songs>.song>.song-card >audio{
+    width: 70%;
+}
+
+.songs>.song>.song-card>img {
+    height: 150px;
+    width: 150px;
+}

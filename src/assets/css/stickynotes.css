@@ -1,0 +1,94 @@
+.stickynotes-container {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    padding: 10px 70px;
+}
+
+.stickynotes-container>.stickynotes {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid rebeccapurple;
+    position: relative;
+}
+
+.stickynotes-container>.stickynotes>img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+}
+
+.stickynotes-container>.stickynotes>.content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 999 !important;
+    top: -40%;
+    width: 95%;
+    height: 60px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+
+/* ================================================================== */
+/* stickynotes-music */
+
+.stickynotes-music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.stickynotes-music>.content {
+    height: 450px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 28px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.stickynotes-music>.content>img {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.stickynotes-music>.content>audio{
+    width: 80%;
+}
+
+.stickynotes-music>button{
+    margin-top: 20px;
+}
+
+/* ================================================================== */
+
+.createstickynotes{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createstickynotes>.content {
+    height: 350px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 58px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
