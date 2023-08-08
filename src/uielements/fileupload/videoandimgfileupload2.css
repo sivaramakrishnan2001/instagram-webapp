@@ -1,0 +1,87 @@
+/* file-upload-wapper2 */
+
+.file-upload-wapper2 {
+  object-fit: fill;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+  width: 100%;
+}
+
+.file-upload-wapper2>.ondrop {
+  border: 2px dashed grey;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.file-upload-wapper2>.ondrop.remove {
+  border: none;
+  object-fit: fill;
+}
+
+.file-upload-wapper2>.ondrop>video{
+  padding: 0;
+  margin: 0;
+  outline: none;
+  object-fit: contain;
+}
+
+.file-upload-wapper2>.ondrop>.icon {
+  height: 50%;
+  width: 50%;
+  color: #cccccc;
+  fill: #cccccc;
+}
+
+.file-upload-wapper2>.ondrop>video,
+.file-upload-wapper2>.ondrop>img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* video-controls  */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999 !important;
+}
+
+.control-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.playback-rate-container {
+  display: flex;
+  align-items: center;
+}
+
+.rate-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.rate-btn.active {
+  font-weight: bold;
+}

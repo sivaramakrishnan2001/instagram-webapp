@@ -1,0 +1,247 @@
+/* ================================================================== */
+/* drawerpopup */
+
+.overlay-modal {
+    /* background-color: aliceblue; */
+    /* background-color: rgba(0, 0, 0, 0.63); */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 9999 !important;
+}
+
+.drawerpopup-default,
+.drawerpopup-full,
+.drawerpopup-auto {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px -2px 2px #00000033;
+    overflow: hidden;
+}
+
+.drawerpopup-default {
+    width: 600px;
+}
+
+.drawerpopup-full {
+    width: 100% !important;
+}
+
+.drawerpopup-auto {
+    width: auto;
+}
+
+/* ------------------------------------------------------------------ */
+/* left , right , top , bottom position */
+
+.drawerpopup-left,
+.drawerpopup-right{
+    top: 0px;
+}
+
+.drawerpopup-left {
+    left: 0;
+}
+
+.drawerpopup-right {
+    right: 0px;
+}
+
+.drawerpopup-top {
+    top: 0px;
+}
+
+.drawerpopup-bottom {
+    bottom: 0px;
+}
+
+/* ------------------------------------------------------------------ */
+/* default */
+
+.drawerpopup-default.drawerpopup-left.drawerpopup-true {
+    animation: popup-move-left-to-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-left.drawerpopup-false {
+    animation: popup-move-right-to-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-right.drawerpopup-true {
+    animation: popup-move-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-right.drawerpopup-false {
+    animation: popup-move-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-top.drawerpopup-true {
+    animation: popup-move-up-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-top.drawerpopup-false {
+    animation: popup-move-down-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-bottom.drawerpopup-true {
+    animation: popup-move-top-to-bottom-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-default.drawerpopup-bottom.drawerpopup-false {
+    animation: popup-move-bottom-to-top-absolute 0.2s forwards linear;
+}
+
+/* ------------------------------------------------------------------ */
+/* full */
+
+.drawerpopup-full.drawerpopup-left.drawerpopup-true {
+    animation: popup-move-left-to-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-left.drawerpopup-false {
+    animation: popup-move-right-to-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-right.drawerpopup-true {
+    animation: popup-move-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-right.drawerpopup-false {
+    animation: popup-move-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-top.drawerpopup-true {
+    animation: popup-move-up-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-top.drawerpopup-false {
+    animation: popup-move-down-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-bottom.drawerpopup-true {
+    animation: popup-move-top-to-bottom-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-full.drawerpopup-bottom.drawerpopup-false {
+    animation: popup-move-bottom-to-top-absolute 0.2s forwards linear;
+}
+
+
+/* ---------------------------------------- */
+/* auto */
+
+.drawerpopup-auto.drawerpopup-left.drawerpopup-true {
+    animation: popup-move-left-to-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-left.drawerpopup-false {
+    animation: popup-move-right-to-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-right.drawerpopup-true {
+    animation: popup-move-left-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-right.drawerpopup-false {
+    animation: popup-move-right-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-top.drawerpopup-true {
+    animation: popup-move-up-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-top.drawerpopup-false {
+    animation: popup-move-down-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-bottom.drawerpopup-true {
+    animation: popup-move-top-to-bottom-absolute 0.2s forwards linear;
+}
+
+.drawerpopup-auto.drawerpopup-bottom.drawerpopup-false {
+    animation: popup-move-bottom-to-top-absolute 0.2s forwards linear;
+}
+
+
+@keyframes popup-move-up-absolute {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes popup-move-down-absolute {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes popup-move-left-absolute {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes popup-move-right-absolute {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes popup-move-left-to-right-absolute {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes popup-move-right-to-left-absolute {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes popup-move-top-to-bottom-absolute {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes popup-move-bottom-to-top-absolute {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
