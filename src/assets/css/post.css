@@ -216,10 +216,10 @@
 }
 
 .post>.post-footer>.comments>.message.replay {
-  justify-content: end;
+    justify-content: end;
 }
 
-.post>.post-footer>.comments>.message>.message{
+.post>.post-footer>.comments>.message>.message {
     display: flex;
     align-items: center;
 }
@@ -230,7 +230,7 @@
     justify-content: center;
 }
 
-.post>.post-footer>.comments>.message>.message>.logo>img{
+.post>.post-footer>.comments>.message>.message>.logo>img {
     height: 40px;
     width: 40px;
     object-fit: contain;
@@ -279,4 +279,30 @@
     justify-content: center;
     height: 60px;
     border-bottom: 1px solid gainsboro;
+}
+
+@media only screen and (max-width: 425px) {
+
+    .post{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post>.post-header{
+        width: 100%;
+    }
+
+    .post>.post-content{
+        width: 90%;
+        height: 500px;
+    }
+
+    .post>.post-content>img,
+    .post>.post-content>.video {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+    }
 }
