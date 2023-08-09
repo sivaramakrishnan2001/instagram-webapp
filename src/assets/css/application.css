@@ -228,3 +228,11 @@
     }
    
 }
+
+@media only screen and (max-width: 375px) {
+    .application-page>.content>.home>.content>.div {
+        padding: 5px !important;
+        width: 335px !important;
+        padding-top: 30px !important;
+    }
+}

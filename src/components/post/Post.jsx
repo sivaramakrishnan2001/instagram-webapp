@@ -288,13 +288,13 @@ export const Post = (props) => {
 
     return (
         <React.Fragment>
-            <div className="all-posts" style={{ width: "450px" }}>
+            {/* <div className="all-posts" style={{ width: "450px" }}>
                 <Card className='' style={{ width: '100%', height: "130px", boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px", marginTop: "10px" }} onClick={() => setShowCreatePost(true)}>
                     <Card.Body style={{ display: "flex", alignItems: "center", padding: "0px", margin: "0px", justifyContent: "center" }}>
                         <svg aria-hidden="true" style={{ height: "50px", width: "50px", fill: "gainsboro" }} viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>
                     </Card.Body>
                 </Card>
-            </div>
+            </div> */}
 
             <div className="all-posts" ref={varstore} >
 

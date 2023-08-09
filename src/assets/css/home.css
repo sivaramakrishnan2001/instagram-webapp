@@ -18,12 +18,12 @@
 }
 
 
-.suggested-for-user{
+.suggested-for-user {
     width: 50%;
 }
 
 @media only screen and (max-width: 900px) {
-    .suggested-for-user{
+    .suggested-for-user {
         display: none;
     }
 }

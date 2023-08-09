@@ -12,15 +12,15 @@ export const Home = props => {
     <div className='home'>
       {/* <CopyToClipboard /> */}
       {/* <Test /> */}
-      <Story />
+      {/* <Story /> */}
       {/* <StickyNotes /> */}
       <div className="content" style={{ display: "flex" }}>
         <div className="div">
           <Post />
         </div>
-        <div className="suggested-for-user">
+        {/* <div className="suggested-for-user">
           <Users />
-        </div>
+        </div> */}
       </div>
     </div>
   )
