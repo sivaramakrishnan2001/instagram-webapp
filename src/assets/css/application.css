@@ -139,25 +139,75 @@
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 600px) {
 
     .application-page>.leftmenu>.ismenu {
         display: inline;
         position: absolute;
-        right: -50px;
+        right: -30px;
         top: 0;
+        top: 5px;
         z-index: 99 !important;
         height: 20px !important;
         width: 20px;
     }
 
-    .leftmenu.close {
+    .application-page>.leftmenu.close {
         position: absolute;
         top: 0;
-        left: -10px;
+        left: -100px;
+        transition: all 0.s linear;
     }
 
-    .leftmenu.open {
+    .application-page>.leftmenu.open {
+        position: absolute;
         left: 0px;
+        transition: all 0.s linear;
+        z-index: 9999 !important;
+        background-color: #fff;
     }
+
+    .application-page>.content>.home {
+        padding: 20px !important;
+    }
+
+    .application-page>.content>.home>.story-container,
+    .application-page>.content>.home>.content>.suggested-for-user {
+        display: none !important;
+        width: 0px;
+        overflow: hidden;
+
+    }
+
+    .application-page>.content>.home>.content>.div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid red;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts {
+        width: 100% !important;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts {
+        align-items: center !important;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts>.card {
+        width: 90% !important;
+        min-width: 90% !important;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts>.post {
+        width: 90% !important;
+        min-width: 90% !important;
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    /* .application-page>.content>.home>.content>.div>.all-posts>.post {
+    } */
 }
