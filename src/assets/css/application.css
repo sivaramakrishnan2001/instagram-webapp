@@ -208,6 +208,24 @@
 
 
 @media only screen and (max-width: 425px) {
-    /* .application-page>.content>.home>.content>.div>.all-posts>.post {
-    } */
+    .application-page>.content>.home {
+        padding: 5px !important;
+        width: 100% !important;
+        padding-top: 30px !important;
+    }
+    .application-page>.content>.home>.content{
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts>.card {
+        width: 98% !important;
+        min-width: 98% !important;
+    }
+
+    .application-page>.content>.home>.content>.div>.all-posts>.post {
+        width: 98% !important;
+        min-width: 98% !important;
+    }
+   
 }
