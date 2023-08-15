@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { GetRequest } from '../../connector/APIsCommunicator';
 import { APIsPath } from '../../connector/APIsPath';
 import { AppScreensKeys, ComponentsKeys, SessionStorageKeys } from '../../connector/AppConfig';
+import { useContext } from 'react';
+import { AuthContext } from '../../comman/Context';
 
 
 export const Search = () => {
 
+    const auth = useContext(AuthContext);
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [search, setSearch] = useState("");
@@ -52,7 +55,7 @@ export const Search = () => {
     // ==============================================================
     if (!users || !myid) return "loading...";
     return (
-        <div className='search-user-page'>
+        <div className='search-user-page' style={{ width: auth.auth.width + "px" }}>
             <div className="header">
                 <input type="text" onChange={(e) => onChangeName(e)} placeholder='search user' />
             </div>

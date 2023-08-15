@@ -319,7 +319,7 @@ export const UserProfile = (props) => {
     const parseCreateCommenMessageError = (err) => {
         console.log("parseCreateCommenMessageError", err);
     }
-
+console.log("paramid === myid",paramid === myid);
 
     if (paramid === myid) {
         return (

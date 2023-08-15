@@ -1,10 +1,11 @@
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { GetRequest, UpdateRequest } from '../../connector/APIsCommunicator';
 import { APIsPath } from '../../connector/APIsPath';
 import { LocalStorageKeys } from '../../connector/AppConfig';
 import { Storage } from '../../firebase';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../../comman/Context';
 
 export const Profile = (props) => {
 
@@ -20,8 +21,10 @@ export const Profile = (props) => {
     const [save, setSave] = useState([]);
     const [likes, setLikes] = useState([]);
     const [paramid, setParamId] = useState("");
+    const auth = useContext(AuthContext);
 
     // ==============================================================
+
 
     useEffect(() => {
         setParamId(params.userId);
@@ -65,6 +68,7 @@ export const Profile = (props) => {
 
     const parseGetProfileResponse = (resObj) => {
         if (resObj.status) {
+            console.log("resObj.data.profile", resObj.data.profile);
             setUser(resObj.data.profile);
             onGetPosts();
         }
@@ -168,38 +172,78 @@ export const Profile = (props) => {
     const parseGetAllLikesError = (err) => {
         console.log("err", err);
     }
-
+    if (!user) return ""
     return (
         <div className='my-profile'>
             <div className="header">
                 <div className="user">
-                    <div className="user-profile">
-                        <div className="border">
-                            <img src={user.profile}  onClick={() => varatore.file.click()} />
-                        </div>
-                        <input ref={(elem) => varatore.file = elem} type="file" onChange={(e) => onFileChange(e)} />
-                    </div>
-                    <div className="user-bio">
-                        {/* <div className="user-id">312312</div> */}
-                        <div className="user-name">
-                            <div>{user.name}</div>
-                            <div>Edit profile</div>
-                            <div className="icon">
-                                <svg aria-label="Settings" className={"svg "} color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
-                                    <circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></circle>
-                                    <path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path>
-                                </svg>
+                    {auth.auth.width <= 600 ?
+                        <React.Fragment>
+                            <div className="left">
+                                <div className="profile">
+                                    <img src={user.profile} onClick={() => varatore.file.click()} />
+                                </div>
+                                <div className="id">{user.name}</div>
+                                <div className="desc"></div>
+                                <div className="links"></div>
                             </div>
-                        </div>
-                        <div className="content">
-                            <div className="user-post"> {post.length + reels.length} posts </div>
-                            <div className="followers"> {user.followers?.length} followers </div>
-                            <div className="following"> {user.following?.length} following </div>
-                        </div>
-                        <div className="bio"></div>
-                        <div className="website"></div>
-                    </div>
+                            <div className="right">
+                                <div className="row">
+                                    <div className="num">{post.length}</div>
+                                    <div className="posts">Posts</div>
+                                </div>
+                                <div className="row">
+                                    <div className="num">{user.followers.length}</div>
+                                    <div className="followers">Followers</div>
+                                </div>
+                                <div className="row">
+                                    <div className="num">{user.following?.length}</div>
+                                    <div className="followers">Following</div>
+                                </div>
+                            </div>
+                        </React.Fragment>
+                        :
+                        <React.Fragment>
+                            <div className="user-profile">
+                                <div className="border">
+                                    <img src={user.profile} onClick={() => varatore.file.click()} />
+                                </div>
+                                <input ref={(elem) => varatore.file = elem} type="file" onChange={(e) => onFileChange(e)} />
+                            </div>
+                            <div className="user-bio">
+                                {/* <div className="user-id">312312</div> */}
+                                <div className="user-name">
+                                    <div>{user.name}</div>
+                                    <div>Edit profile</div>
+                                    <div className="icon">
+                                        <svg aria-label="Settings" className={"svg "} color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
+                                            <circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></circle>
+                                            <path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="2"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="content">
+                                    <div className="user-post"> {post.length + reels.length} posts </div>
+                                    <div className="followers"> {user.followers?.length} followers </div>
+                                    <div className="following"> {user.following?.length} following </div>
+                                </div>
+                                <div className="bio"></div>
+                                <div className="website"></div>
+                            </div>
+                        </React.Fragment>
+                    }
+
+
+
+
                 </div>
+                {auth.auth.width <= 600 ?
+                    <div className="userprofilefooter">
+                        <div className="edit">Edit profile</div>
+                        <div className="shareprofile">Share profile</div>
+                    </div>
+                    : ""
+                }
                 <div className="highlights">
                     <div className="highlight"></div>
                     <div className="highlight"></div>
@@ -245,26 +289,11 @@ export const Profile = (props) => {
                 <div className="my-posts">
                     <div className="posts">
                         <div className="post"></div>
-                        <div className="post"></div>
-                        <div className="post"></div>
-                        <div className="post"></div>
-                        <div className="post"></div>
-                        <div className="post"></div>
                     </div>
                     <div className="reels">
                         <div className="reel"></div>
-                        <div className="reel"></div>
-                        <div className="reel"></div>
-                        <div className="reel"></div>
-                        <div className="reel"></div>
-                        <div className="reel"></div>
                     </div>
                     <div className="saves">
-                        <div className="save"></div>
-                        <div className="save"></div>
-                        <div className="save"></div>
-                        <div className="save"></div>
-                        <div className="save"></div>
                         <div className="save"></div>
                     </div>
                 </div>

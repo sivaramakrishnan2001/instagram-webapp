@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Content } from '../../components/application/Content';
 import { LeftMenu } from '../../components/application/LeftMenu';
 import { AppScreensKeys, Components, ComponentsKeys, LocalStorageKeys, SessionStorageKeys } from '../../connector/AppConfig';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { GetRequest } from '../../connector/APIsCommunicator';
 import { APIsPath } from '../../connector/APIsPath';
+import { AuthContext } from '../../comman/Context';
+import { Mnavbar } from '../../uielements/mobile/navbar/Mnavbar';
 
 export const ApplicationPage = (props) => {
 
     const params = useParams();
     const location = useLocation();
+    const auth = useContext(AuthContext);
     const [menu, setMenu] = useState(false);
     const navigator = useNavigate();
     const [selected, setSelected] = useState(Components[0]);
@@ -20,18 +23,21 @@ export const ApplicationPage = (props) => {
     // ==============================================================
 
     useEffect(() => {
-        console.log("params.userId)--test->", params.userId);
+        console.log("auth", auth.auth.width);
+        // window.addEventListener("resize", ()=>{
+        //     console.log("---------");
+        // });
+
+
         setMyDetails(JSON.parse(localStorage.getItem("user")));
         if (mydetails._id) {
             getProfileApi();
         }
 
-        console.log("s---location", location);
         if (params.userId) {
             if (location.pathname === AppScreensKeys.Home + "/" + ComponentsKeys.USERPROFILE + "/" + params.userId) {
                 navigator(AppScreensKeys.Home + "/" + ComponentsKeys.USERPROFILE + "/" + params.userId);
             }
-            console.log("userId=======");
 
             // setSelected(obj);
             setSelectLeftMenu(Components.filter((i) => i.id === ComponentsKeys.USERPROFILE)[0]);
@@ -53,7 +59,6 @@ export const ApplicationPage = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log("params", params);
         let obj;
 
         if (params.userId) {
@@ -66,7 +71,6 @@ export const ApplicationPage = (props) => {
 
             }
             else {
-                console.log("fasle-->");
 
                 obj = Components.filter((i) => i.id === ComponentsKeys.USERPROFILE)[0];
                 obj.userid = params.userId;
@@ -145,11 +149,18 @@ export const ApplicationPage = (props) => {
     // ==============================================================
 
     return (
-        <div className='application-page'>
-            
+        <div className='application-page' style={{ width: auth.auth.width <= 500 ? auth.auth.width + "px" : "" }}>
+            {auth.auth.width >= 500 ?
+                <LeftMenu active={menu} onSelected={(row) => onSelected(row)} selected={selectleftmenu} />
+                : ""
+            }
 
-            <LeftMenu active={menu} onSelected={(row) => onSelected(row)} selected={selectleftmenu} />
+
             <Content selected={selected} />
+            {auth.auth.width <= 500 ?
+                <Mnavbar onSelected={(row) => onSelected(row)} selected={selectleftmenu} />
+                : ""
+            }
         </div>
     )
 }

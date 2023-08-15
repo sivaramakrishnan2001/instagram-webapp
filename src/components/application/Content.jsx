@@ -37,7 +37,6 @@ export const Content = props => {
 
 
     useEffect(() => {
-        console.log("props.selected.id", props.selected);
         if (props.selected && props.selected.id) {
             setSelectedId(props.selected.id);
         }
@@ -47,7 +46,6 @@ export const Content = props => {
     // functions
 
     const getComponents = (id) => {
-        console.log("id)))))))))->",id);
         switch (id) {
             case ComponentsKeys.HOME: return <Home />
             case ComponentsKeys.CREATE: return <Create />;

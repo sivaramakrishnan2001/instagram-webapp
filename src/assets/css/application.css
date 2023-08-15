@@ -203,6 +203,24 @@
         width: 90% !important;
         min-width: 90% !important;
     }
+
+    .application-page{
+        flex-direction: column;
+    }
+
+    .application-page>.content{
+        height: calc(100% - 50px);
+        width: 100% !important;
+        border: 2px solid red !important;
+        overflow-y: scroll;
+        padding: 0px !important;
+        margin: 0px !important;
+        overflow-x:hidden !important;
+    }
+
+    .application-page>.content>.my-profile{
+        min-height: 100vh !important;
+    }
 }
 
 
@@ -229,10 +247,17 @@
    
 }
 
+@media only screen and (max-width: 500px) {
+    .application-page>.content>div{
+        padding: 20px !important;
+        align-items: center !important;
+    }
+}
+
 @media only screen and (max-width: 375px) {
-    .application-page>.content>.home>.content>.div {
+    /* .application-page>.content>.home>.content>.div {
         padding: 5px !important;
         width: 335px !important;
         padding-top: 30px !important;
-    }
+    } */
 }

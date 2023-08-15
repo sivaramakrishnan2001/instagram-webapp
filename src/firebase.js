@@ -13,7 +13,6 @@ const firebaseConfig = {
   BucketUrl: process.env.REACT_APP_BUCKETURL,
 };
 
-console.log("firebaseConfig", firebaseConfig);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { APIsPath } from '../../connector/APIsPath';
 import { GetRequest, PostRequest, UpdateRequest } from '../../connector/APIsCommunicator';
 import { AppScreensKeys, ComponentsKeys, LocalStorageKeys, SessionStorageKeys } from '../../connector/AppConfig';
@@ -9,9 +9,11 @@ import { Comments } from '../comments/Comments';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CreatePost } from '../create/CreatePost';
+import { AuthContext } from '../../comman/Context';
 
 export const Post = (props) => {
 
+    const auth = useContext(AuthContext);
     const varstore = useRef();
     const videoRef = useRef();
     const navigate = useNavigate();
@@ -288,15 +290,15 @@ export const Post = (props) => {
 
     return (
         <React.Fragment>
-            {/* <div className="all-posts" style={{ width: "450px" }}>
+            <div className="all-posts" style={{ width: auth.auth.width <= 500 ? auth.auth.width + "px" : "" }}>
                 <Card className='' style={{ width: '100%', height: "130px", boxShadow: " rgba(0, 0, 0, 0.1) 0px 1px 2px 0px", marginTop: "10px" }} onClick={() => setShowCreatePost(true)}>
                     <Card.Body style={{ display: "flex", alignItems: "center", padding: "0px", margin: "0px", justifyContent: "center" }}>
                         <svg aria-hidden="true" style={{ height: "50px", width: "50px", fill: "gainsboro" }} viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path></svg>
                     </Card.Body>
                 </Card>
-            </div> */}
+            </div>
 
-            <div className="all-posts" ref={varstore} >
+            <div className="all-posts" style={{ width: auth.auth.width <= 500 ? auth.auth.width + "px" : "" }} ref={varstore} >
 
                 {posts?.map((row, key) => {
                     var liked = row.likes.filter((f) => f._id === mydetails._id);
@@ -441,7 +443,7 @@ export const Post = (props) => {
                                                 : <svg viewBox="0 0 24 24" className={"svg " + "unlike"}>
                                                     <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"></path>
                                                 </svg>}
-                                                {row.likes.length}
+                                            {row.likes.length}
 
                                         </span>
                                         <span className='icon' onClick={(e) => {

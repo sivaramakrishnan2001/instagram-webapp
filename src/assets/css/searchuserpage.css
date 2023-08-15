@@ -67,3 +67,10 @@
 .search-user-page>.content>.search-users>.user-row>.end{
     width: 25%;
 }
+
+@media only screen and (max-width: 600px) {
+    .search-user-page{
+        width: 100% !important;
+        padding: 20px;
+    }
+}

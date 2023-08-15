@@ -1,8 +1,8 @@
 
 export const APIsPath = {
 
-    // BaseUrl: 'http://localhost:2000',
-    BaseUrl: process.env.REACT_APP_BASE_URL,
+    BaseUrl: 'http://localhost:2000',
+    // BaseUrl: process.env.REACT_APP_BASE_URL,
 
 
     // Authentication

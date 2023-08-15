@@ -67,6 +67,16 @@ export const Components = [
     { id: ComponentsKeys.USERPROFILE, title: "User Profile", icon: "" }
 ];
 
+export const MComponents = [
+    { id: ComponentsKeys.HOME, title: "Home", icon: <HOME /> },
+    { id: ComponentsKeys.SEARCH, title: "Search", icon: <SEARCH /> },
+    { id: ComponentsKeys.CREATE, title: "Create", icon: <CREATE /> },
+    { id: ComponentsKeys.REELS, title: "Reels", icon: <REELS /> },
+    { id: ComponentsKeys.PROFILE, title: "Profile", icon: <REELS /> },
+];
+
+
+
 export const SessionStorageKeys = {
     ActiveMenu: "activemenu",
 }
